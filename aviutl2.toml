@@ -1,0 +1,32 @@
+#:schema ./.aviutl2-cli/aviutl2.schema.json
+# 設定ファイルについては https://github.com/sevenc-nanashi/aviutl2-cli を参照してください。
+[project]
+id = "miangamic"
+name = "miangamic"
+version = "0.1.0"
+
+[development]
+aviutl2_version = "latest"
+
+[artifacts.miangamic-aux2]
+destination = "Plugin/miangamic/miangamic.aux2"
+
+[artifacts.miangamic-aux2.profiles.debug]
+build = ["cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug", "cmake --build build --config Debug"]
+source = "build/Debug/miangamic.dll"
+
+[artifacts.miangamic-aux2.profiles.release]
+build = ["cmake -S . -B build -DCMAKE_BUILD_TYPE=Release", "cmake --build build --config Release"]
+source = "build/Release/miangamic.dll"
+
+[artifacts.miangamic-i18n_JP]
+destination = "Plugin/miangamic/i18n/ja-JP.Miangamic.ini"
+source = "i18n/ja-JP.Miangamic.ini"
+
+[artifacts.miangamic-i18n_EN]
+destination = "Plugin/miangamic/i18n/en.Miangamic.ini"
+source = "i18n/en.Miangamic.ini"
+
+[artifacts.miangamic-i18n_zhs]
+destination = "Plugin/miangamic/i18n/zh-Hans-CH.Miangamic.ini"
+source = "i18n/zh-Hans-CH.Miangamic.ini"
